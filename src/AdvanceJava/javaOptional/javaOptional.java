@@ -6,14 +6,17 @@ import java.util.Optional;
 public class javaOptional {
     public static void main(String[] args) {
 
-        Person person = new Person("ahha", "AHHAH@gmail.com");
+        Optional.ofNullable("angelo@gmail.com").ifPresent(email -> System.out.println("Sending email to" + email));
+        Optional.ofNullable(null).ifPresentOrElse(email -> System.out.println("Sending email to" + email), () -> {System.out.println("Cannot send email");});
 
-        if(person.getName().isPresent()) {
-            String email = person.getEmail().get();
-            System.out.println(email.toLowerCase());
-        } else {
-            System.out.println("email not provided");
-        }
+        // Person person = new Person("ahha", "AHHAH@gmail.com");
+
+        // if(person.getName().isPresent()) {
+        //     String email = person.getEmail().get();
+        //     System.out.println(email.toLowerCase());
+        // } else {
+        //     System.out.println("email not provided");
+        // }
 
         class Person {
             private final String name;
